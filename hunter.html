@@ -16,7 +16,7 @@
     <div id="penalty" style="color:rgb(210, 13, 13);background-color:wheat;">
         Penalty is zero
     </div>
-    <div style="font-family: 'Courier New', Courier, monospace;border: 25;background-color: aqua;">
+    <div style="font-family: 'Courier New', Courier, monospace;border: 25;background-color: aqua;" onclick="help()">
         Click for help
     </div>
     <div id="help" style=background-color:purple>
@@ -96,7 +96,7 @@
 			var imgId = ids[position];
 
 			if(position == mouseLocation){
-				document.getElementById(imgId).src = "mouse.jpg";
+				document.getElementById(imgId).src = "rat.jpg";
 				gameOver = true;
 				penalty -= 4;
 
