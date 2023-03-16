@@ -25,64 +25,135 @@
 
     <div class="container">
         <div class="location">
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A1" onclick="check(0)" alt="First image" height="200px" width="200px">
         
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A2" onclick="check(1)" alt="First image" height="200px" width="200px">
         
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A3" onclick="check(2)" alt="First image" height="200px" width="200px">
         
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A4" onclick="check(3)" alt="First image" height="200px" width="200px">
         
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A5" onclick="check(4)" alt="First image" height="200px" width="200px">
        
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A6" onclick="check(5)" alt="First image" height="200px" width="200px">
         </div>
     </div>
     <div class="container">
         <div class="location">
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A7" onclick="check(6)" alt="First image" height="200px" width="200px">
         
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A8" onclick="check(7)" alt="First image" height="200px" width="200px">
         
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A9" onclick="check(8)" alt="First image" height="200px" width="200px">
         
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A10" onclick="check(9)" alt="First image" height="200px" width="200px">
         
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A11" onclick="check(10)" alt="First image" height="200px" width="200px">
        
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A12" onclick="check(11)" alt="First image" height="200px" width="200px">
         </div>
     </div>
     <div class="container">
         <div class="location">
-            <img src="Bush.jpg" alt="Firstimage" height="200px" width="200px">
+            <img src="Bush.jpg"id="A13" onclick="check(12)" alt="Firstimage" height="200px" width="200px">
         
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A14" onclick="check(13)" alt="First image" height="200px" width="200px">
         
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A15" onclick="check(14)" alt="First image" height="200px" width="200px">
         
-            <img src="Bush.jpg" alt="Firstimage" height="200px" width="200px">
+            <img src="Bush.jpg" id="A16" onclick="check(15)" alt="Firstimage" height="200px" width="200px">
         
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A17" onclick="check(16)" alt="First image" height="200px" width="200px">
        
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A18" onclick="check(17)" alt="First image" height="200px" width="200px">
         </div>
     </div>
     <div class="container">
         <div class="location">
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A19" onclick="check(18)" alt="First image" height="200px" width="200px">
         
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A20" onclick="check(19)" alt="First image" height="200px" width="200px">
         
-            <img src="Bush.jpg" alt="Firstimage" height="200px" width="200px">
+            <img src="Bush.jpg" id="A21" onclick="check(20)" alt="Firstimage" height="200px" width="200px">
         
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A22" onclick="check(21)" alt="First image" height="200px" width="200px">
         
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A23" onclick="check(22)" alt="First image" height="200px" width="200px">
        
-            <img src="Bush.jpg" alt="First image" height="200px" width="200px">
+            <img src="Bush.jpg" id="A24" onclick="check(23)" alt="First image" height="200px" width="200px">
         </div>
     </div>
+    <script>
+        let ids=['A1','A2','A3','A4','A5','A6','A7','A8','A9','A10','A11','A12','A13','A14','A15','A16','A17','A18','A19','A20','A21','A22','A23','A24']
+        let checkCount=0
+        let penalty=0
+        let lastCheck=0
+        let mouseLocation=13
+        let catLocation=21
+        let gameOver=false
+
+        function check(position){
+			var imgId = ids[position];
+
+			if(position == mouseLocation){
+				document.getElementById(imgId).src = "mouse.jpg";
+				gameOver = true;
+				penalty -= 4;
+
+			}
+			else if(position == catLocation){
+				document.getElementById(imgId).src = "Tiger.jpg";
+				gameOver = true;
+				penalty += 3;
+			}
+			else
+				document.getElementById(imgId).src = "grass.jpg";
+
+			checkCount++;
+			penalty++;
+			document.getElementById("bushes").innerHTML = "Number of bushes checked is " + checkCount + ".";
+			document.getElementById("penalty").innerHTML = "Penalty is " + penalty + ".";
+			lastCheck = position;
+		}        let row=0;
+        let row1=0;
+        let row2=0
+        let col1=0;
+        let col=0;
+        let col2=0;
+        function help()
+        {
+            console.log("hi")
+            let lastcol=lastCheck%6;
+            let lastrow=Math.floor(lastCheck/6);
+            let catcol=catLocation%6;
+            let catrow=Math.floor(catLocation/6);
+            let coldiff=Math.abs(lastcol-catcol);
+            let rowdiff=(Math.abs(lastrow-catrow));
+            let ratcol=mouseLocation%6;
+            let ratrow=Math.floor(mouseLocation/6);
+            let ratcoldiff=Math.abs(lastcol-ratcol);
+            let ratrowdiff=(Math.abs(lastrow-ratrow));
+            console.log(rowdiff,coldiff)
+            if(ratrowdiff<=1 && ratcoldiff<=1)
+            {
+                document.getElementById("help").innerHTML="squeek"
+                penalty+=2;
+                penalty.innerHTML="Penalty is "+penalty;
+            }
+            else if(rowdiff<=1 && coldiff<=1)
+            {
+                document.getElementById("help").innerHTML="Meow"
+                penalty+=2;
+                penalty.innerHTML="Penalty is "+penalty;
+            }
+            else{
+                document.getElementById("help").innerHTML="sorry, no help available"
+                penalty+=2;
+                penalty.innerHTML="Penalty is "+penalty;
+            }
+        }
+
+    </script>
 
 </body>
 </html>
